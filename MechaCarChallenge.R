@@ -1,4 +1,4 @@
-#Deliverable 1
+#Deliverable 1 __________________________
 
 #load dplyr package
 library(dplyr)
@@ -12,7 +12,8 @@ lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AW
 #Summary
 summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data= MechaCar))
 
-#Deliveranle 2
+
+#Deliveranle 2_________________________
 
 #read file
 Suspension <- read.csv(file='Suspension_coil.csv',check.names=F,stringsAsFactors = F)
@@ -24,3 +25,16 @@ summarize_sc <- Suspension %>% summarize(Mean=mean(PSI),Median=(PSI),Variance=va
 lot_sc <- Suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI),Median=(PSI),Variance=var(PSI),SD=sd(PSI))
 
 
+#Deliverable 3_________________________
+
+#t-test 
+t.test(Suspension$PSI,mu = 1500)
+
+# t-test on Lot 1
+t.test(subset(Suspension,Manufacturing_Lot=="Lot1")$PSI,mu = 1500)
+
+# t-test on Lot 2
+t.test(subset(Suspension,Manufacturing_Lot=="Lot2")$PSI,mu = 1500)
+
+# t-test on Lot 3
+t.test(subset(Suspension,Manufacturing_Lot=="Lot3")$PSI,mu = 1500)
